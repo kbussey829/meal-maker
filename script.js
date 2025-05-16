@@ -43,7 +43,7 @@ listSetup(proteinArray, "protein");
 listSetup(carbArray, "carb");
 listSetup(vegArray, "veg");
 
-//check which products have been selected from the list
+//check which products have been selected from the list and return a random product
 function getCustomElement(foodType, foodArray){
     let customArray = [];
     let customArrayCount = 0;
@@ -61,10 +61,10 @@ function getCustomElement(foodType, foodArray){
     return customArray[index];
 }
 
-//function to generate and display recipe
 const generateBtn = document.getElementById("random-generator");
 const displayRecipe = document.getElementById("result");
 
+//generate and display a recipe
 generateBtn.addEventListener("click", () => {
     let customProtein = getCustomElement("protein", proteinArray);
     let customVeg = getCustomElement("veg", vegArray);
@@ -74,7 +74,7 @@ generateBtn.addEventListener("click", () => {
     displayRecipe.textContent = newTextContent;
 });
 
-//generate a specific product and display the result
+//generate and display a specific product
 function generateProductType(prodType, prodArray){
     let customProduct = getCustomElement(prodType, prodArray);
     const displayProduct = document.getElementById(`${prodType}-result`);
